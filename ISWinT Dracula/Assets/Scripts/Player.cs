@@ -8,10 +8,19 @@ public class Player : MonoBehaviour
     public float jumpForce = 15f;
 
     private Rigidbody2D rb;
+    private bool jumpRequest = false;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+    }
+
+    void Update()
+    {
+        if (Keyboard.current != null && Keyboard.current.spaceKey.wasPressedThisFrame)
+        {
+            jumpRequest = true;
+        }
     }
 
     void FixedUpdate()
@@ -30,14 +39,14 @@ public class Player : MonoBehaviour
 
             moveInput = new Vector2(horizontal, vertical).normalized;
 
-            // Skok — jeśli spacja jest wciśnięta w tym klatce
-            if (Keyboard.current.spaceKey.wasPressedThisFrame)
-            {
-                rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
-            }
         }
 
         rb.AddForce(moveInput * speed);
-        Debug.Log(moveInput);
+
+        if (jumpRequest)
+        {
+            rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+            jumpRequest = false;
+        }
     }
 }
