@@ -8,6 +8,17 @@ public class MainMenu : MonoBehaviour
         SceneManager.LoadScene("Level1");
     }
 
+    public void OpenMainMenu()
+    {
+        SceneManager.LoadScene("Menu");
+    }
+
+    public void RestartLevel()
+    {
+        Scene currentScene = SceneManager.GetActiveScene();
+        SceneManager.LoadScene(currentScene.buildIndex);
+    }
+
     public void QuitGame()
     {
         Application.Quit();
