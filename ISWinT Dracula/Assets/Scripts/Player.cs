@@ -6,6 +6,7 @@ public class Player : MonoBehaviour
 {
     public float speed = 10f;
     public float jumpForce = 15f;
+    public float maxSpeed = 20f;
 
     private Rigidbody2D rb;
     private bool jumpRequest = false;
@@ -38,11 +39,18 @@ public class Player : MonoBehaviour
             if (Keyboard.current.dKey.isPressed) horizontal += 1;
 
             moveInput = new Vector2(horizontal, vertical).normalized;
-
         }
 
+        // Add force
         rb.AddForce(moveInput * speed);
 
+        // Spedd limit :)
+        if (rb.linearVelocity.magnitude > maxSpeed)
+        {
+            rb.linearVelocity = rb.linearVelocity.normalized * maxSpeed;
+        }
+
+        // Jumping
         if (jumpRequest)
         {
             rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
