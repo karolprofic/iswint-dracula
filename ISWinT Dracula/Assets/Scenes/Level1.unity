@@ -808,6 +808,8 @@ MonoBehaviour:
   speed: 30
   jumpForce: 14
   maxSpeed: 15
+  health: 100
+  deadZoneY: -10
 --- !u!1 &1850819777
 GameObject:
   m_ObjectHideFlags: 0

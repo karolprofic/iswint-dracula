@@ -7,6 +7,8 @@ public class Player : MonoBehaviour
     public float speed = 10f;
     public float jumpForce = 15f;
     public float maxSpeed = 20f;
+    public int health = 100;
+    public float deadZoneY = -15f;
 
     private Rigidbody2D rb;
     private bool jumpRequest = false;
@@ -18,14 +20,26 @@ public class Player : MonoBehaviour
 
     void Update()
     {
+        if (!IsPlayerAlive())
+        {
+            return;
+        }
+
         if (Keyboard.current != null && Keyboard.current.spaceKey.wasPressedThisFrame)
         {
             jumpRequest = true;
         }
+
+        CheckDeadZone();
     }
 
     void FixedUpdate()
     {
+        if (!IsPlayerAlive())
+        {
+            return;
+        }
+
         Vector2 moveInput = Vector2.zero;
 
         if (Keyboard.current != null)
@@ -57,4 +71,28 @@ public class Player : MonoBehaviour
             jumpRequest = false;
         }
     }
+
+    bool IsPlayerAlive()
+    {
+        if (health > 0)
+        {
+            return true;
+        }
+        return false;
+    }
+
+    void CheckDeadZone()
+    {
+        if (transform.position.y < deadZoneY)
+        {
+            health = 0;
+            GameOver();
+        }
+    }
+
+    void GameOver()
+    {
+        Debug.Log("Game Over!");
+    }
+
 }
