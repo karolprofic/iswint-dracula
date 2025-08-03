@@ -551,6 +551,7 @@ RectTransform:
   m_LocalScale: {x: 0.019569471, y: 0.019569471, z: 0.019569471}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 1356535896}
   - {fileID: 1820196395}
   - {fileID: 984813049}
   m_Father: {fileID: 0}
@@ -731,8 +732,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1356535895}
-        m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
-        m_MethodName: QuitGame
+        m_TargetAssemblyTypeName: MenuActions, Assembly-CSharp
+        m_MethodName: ExitGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -817,12 +818,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1356535894}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.16205, y: -1.36644, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -110.48076, y: -69.82509, z: -4599}
+  m_LocalScale: {x: 51.100002, y: 51.100002, z: 51.100002}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 267530789}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1820196394
 GameObject:
@@ -908,8 +909,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1356535895}
-        m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
-        m_MethodName: NewGame
+        m_TargetAssemblyTypeName: MenuActions, Assembly-CSharp
+        m_MethodName: StartNewGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1181,4 +1182,3 @@ SceneRoots:
   - {fileID: 72275790}
   - {fileID: 267530789}
   - {fileID: 2036646756}
-  - {fileID: 1356535896}

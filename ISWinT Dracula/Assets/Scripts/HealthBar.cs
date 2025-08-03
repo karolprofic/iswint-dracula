@@ -6,16 +6,54 @@ public class HealthBar : MonoBehaviour
     public Image fillImage;
 
     private int maxHealth = 100;
+    private float targetFillAmount;
+    private float fillSpeed = 0.5f;
 
-    public void SetMaxHealth(int health)
+    private void Update()
     {
-        maxHealth = health;
-        SetHealth(health);
+        AnimateHealthBar();
     }
 
-    public void SetHealth(int currentHealth)
+    /// <summary>
+    /// Sets the maximum health and initializes the bar.
+    /// </summary>
+    public void Initialize(int health)
     {
-        float fillAmount = (float)currentHealth / maxHealth;
-        fillImage.fillAmount = Mathf.Clamp01(fillAmount);
+        maxHealth = health;
+        SetHealthInstantly(health);
+    }
+
+    /// <summary>
+    /// Updates the health bar to reflect current health with animation.
+    /// </summary>
+    public void UpdateHealth(int currentHealth)
+    {
+        float normalizedHealth = (float)currentHealth / maxHealth;
+        targetFillAmount = Mathf.Clamp01(normalizedHealth);
+    }
+
+    /// <summary>
+    /// Immediately sets the health bar fill amount without animation.
+    /// </summary>
+    public void SetHealthInstantly(int currentHealth)
+    {
+        float normalizedHealth = (float)currentHealth / maxHealth;
+        fillImage.fillAmount = Mathf.Clamp01(normalizedHealth);
+        targetFillAmount = fillImage.fillAmount;
+    }
+
+    /// <summary>
+    /// Smoothly animates the health bar toward the target fill amount.
+    /// </summary>
+    private void AnimateHealthBar()
+    {
+        if (Mathf.Approximately(fillImage.fillAmount, targetFillAmount))
+            return;
+
+        fillImage.fillAmount = Mathf.MoveTowards(
+            fillImage.fillAmount,
+            targetFillAmount,
+            fillSpeed * Time.deltaTime
+        );
     }
 }

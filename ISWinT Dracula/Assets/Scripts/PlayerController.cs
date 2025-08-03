@@ -9,6 +9,12 @@ public class PlayerController : MonoBehaviour
     public float jumpImpulse = 15f;
     public float maxVelocity = 20f;
 
+    [Header("Jump Settings")]
+    public int maxJumps = 1;
+    public Transform groundCheckPoint;
+    public float groundCheckRadius = 0.2f;
+    public LayerMask groundLayer;
+
     [Header("Health Settings")]
     public int maxHealth = 100;
     public float fallDeathY = -15f;
@@ -17,23 +23,28 @@ public class PlayerController : MonoBehaviour
     public HealthBar healthBar;
     public Animator animator;
     public Canvas gameOverCanvas;
+    public Canvas userInterfaceCanvas;
     public CameraFollowHorizontal cameraFollow;
 
     private Rigidbody2D rb;
     private int currentHealth;
+    private int availableJumps;
     private bool jumpRequested = false;
+    private bool isGrounded = false;
 
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         currentHealth = maxHealth;
-        healthBar.SetMaxHealth(maxHealth);
+        availableJumps = maxJumps;
+        healthBar.Initialize(maxHealth);
     }
 
     private void Update()
     {
         if (!IsAlive()) return;
 
+        CheckGrounded();
         HandleJumpInput();
         CheckIfFallenOutOfBounds();
     }
@@ -48,8 +59,29 @@ public class PlayerController : MonoBehaviour
 
         if (jumpRequested)
         {
-            PerformJump();
-            jumpRequested = false;
+            if (availableJumps > 0)
+            {
+                PerformJump();
+                availableJumps--;
+            }
+
+            jumpRequested = false; // Always reset jumpRequested, even if jump wasn't allowed
+        }
+    }
+
+    /// <summary>
+    /// Checks if player is touching the ground.
+    /// </summary>
+    private void CheckGrounded()
+    {
+        if (groundCheckPoint != null)
+        {
+            isGrounded = Physics2D.OverlapCircle(groundCheckPoint.position, groundCheckRadius, groundLayer);
+
+            if (isGrounded)
+            {
+                availableJumps = maxJumps;
+            }
         }
     }
 
@@ -65,7 +97,7 @@ public class PlayerController : MonoBehaviour
     }
 
     /// <summary>
-    /// Applies horizontal and vertical movement forces based on input.
+    /// Applies movement force based on input and flips character if needed.
     /// </summary>
     private void MovePlayer(Vector2 direction)
     {
@@ -85,16 +117,17 @@ public class PlayerController : MonoBehaviour
     }
 
     /// <summary>
-    /// Applies upward force for jumping and triggers jump animation.
+    /// Applies upward force for jumping and plays animation.
     /// </summary>
     private void PerformJump()
     {
+        rb.linearVelocity = new Vector2(rb.linearVelocity.x, 0);
         rb.AddForce(Vector2.up * jumpImpulse, ForceMode2D.Impulse);
         animator.Play("Jump");
     }
 
     /// <summary>
-    /// Changes character's facing direction based on movement.
+    /// Flips character sprite based on horizontal movement.
     /// </summary>
     private void UpdateCharacterFacing(float horizontalInput)
     {
@@ -131,17 +164,17 @@ public class PlayerController : MonoBehaviour
     }
 
     /// <summary>
-    /// Returns true if player is still alive.
+    /// Returns true if the player still has health remaining.
     /// </summary>
     private bool IsAlive() => currentHealth > 0;
 
     /// <summary>
-    /// Reduces player's health and updates health bar. Triggers game over if health reaches zero.
+    /// Applies damage to the player and triggers game over if health reaches zero.
     /// </summary>
     public void TakeDamage(int damageAmount)
     {
         currentHealth = Mathf.Max(0, currentHealth - damageAmount);
-        healthBar.SetHealth(currentHealth);
+        healthBar.UpdateHealth(currentHealth);
 
         if (!IsAlive())
         {
@@ -150,7 +183,7 @@ public class PlayerController : MonoBehaviour
     }
 
     /// <summary>
-    /// Checks if player has fallen below the map.
+    /// Checks if the player has fallen below the death zone and ends the game if true.
     /// </summary>
     private void CheckIfFallenOutOfBounds()
     {
@@ -162,13 +195,15 @@ public class PlayerController : MonoBehaviour
     }
 
     /// <summary>
-    /// Triggers game over UI and stops camera following.
+    /// Handles game over logic: stops camera follow, shows game over UI, and logs the event.
     /// </summary>
     private void HandleGameOver()
     {
-        healthBar.SetHealth(0);
+        healthBar.UpdateHealth(0);
         gameOverCanvas.gameObject.SetActive(true);
+        userInterfaceCanvas.gameObject.SetActive(false);
         cameraFollow.stopFallowing = true;
         Debug.Log("Game Over!");
     }
+
 }

@@ -789,12 +789,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 888966258}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.3649, y: -0.64756, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 122.5785, y: -23.589685, z: -3278.5713}
+  m_LocalScale: {x: 36.42857, y: 36.42857, z: 36.42857}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1321797560}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1168994922
 GameObject:
@@ -1112,15 +1112,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d85af90b61a9f2648a35c18dd6fd650d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 30
-  jumpForce: 14
-  maxSpeed: 15
-  health: 100
-  deadZoneY: -10
+  movementForce: 30
+  jumpImpulse: 14
+  maxVelocity: 15
+  maxJumps: 1
+  groundCheckPoint: {fileID: 2037690765}
+  groundCheckRadius: 0.2
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 128
+  maxHealth: 100
+  fallDeathY: -10
   healthBar: {fileID: 708291291}
   animator: {fileID: 1206686807}
   gameOverCanvas: {fileID: 1321797559}
-  cameraFollowHorizontal: {fileID: 519420033}
+  userInterfaceCanvas: {fileID: 1906894933}
+  cameraFollow: {fileID: 519420033}
 --- !u!95 &1206686807
 Animator:
   serializedVersion: 7
@@ -1227,8 +1234,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 888966259}
-        m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
-        m_MethodName: RestartLevel
+        m_TargetAssemblyTypeName: MenuActions, Assembly-CSharp
+        m_MethodName: ReloadCurrentLevel
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1505,7 +1512,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1321797557
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1581,6 +1588,7 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 888966260}
   - {fileID: 1789046587}
   - {fileID: 1375481356}
   - {fileID: 1267493816}
@@ -1676,8 +1684,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 888966259}
-        m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
-        m_MethodName: OpenMainMenu
+        m_TargetAssemblyTypeName: MenuActions, Assembly-CSharp
+        m_MethodName: LoadMainMenu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2570,4 +2578,3 @@ SceneRoots:
   - {fileID: 1434799006}
   - {fileID: 1906894934}
   - {fileID: 1321797560}
-  - {fileID: 888966260}
