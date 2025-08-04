@@ -31,6 +31,8 @@ public class PlayerController : MonoBehaviour
     private int availableJumps;
     private bool jumpRequested = false;
     private bool isGrounded = false;
+    private int amountOfBloodVails = 3;
+    private int amountOfUmbrellas = 1;
 
     private void Start()
     {
@@ -152,6 +154,16 @@ public class PlayerController : MonoBehaviour
         if (Keyboard.current.aKey.isPressed || Keyboard.current.leftArrowKey.isPressed) horizontal -= 1;
         if (Keyboard.current.dKey.isPressed || Keyboard.current.rightArrowKey.isPressed) horizontal += 1;
 
+/*        if (Keyboard.current.digit1Key.isPressed)
+        {
+            UseBloodVains();
+        }
+
+        if (Keyboard.current.digit2Key.isPressed)
+        {
+            UseUmbrella();
+        }
+*/
 #if UNITY_EDITOR
         // Debug input for taking damage
         if (Keyboard.current.tKey.wasPressedThisFrame)
@@ -206,4 +218,32 @@ public class PlayerController : MonoBehaviour
         Debug.Log("Game Over!");
     }
 
+    /// <summary>
+    /// Adds the specified amount of a collectable item to the player's inventory.
+    /// </summary>
+    public void CollectItem(string itemName, int itemAmount)
+    {
+        if (string.IsNullOrWhiteSpace(itemName))
+        {
+            Debug.LogWarning("CollectItem called with empty itemName.");
+            return;
+        }
+
+        string normalized = itemName.Trim();
+
+        switch (normalized)
+        {
+            case "BloodVails":
+                amountOfBloodVails += itemAmount;
+                break;
+
+            case "Coins":
+                amountOfUmbrellas += itemAmount;
+                break;
+
+            default:
+                Debug.LogWarning($"No collection logic defined for item: {itemName}");
+                break;
+        }
+    }
 }
