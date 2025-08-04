@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: c6eb4c37b1a37dc4f8fe842d863ef6e1
+guid: 92a929b80e74abb47989b92afa6b1f00
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -125010139630567297
-    second: Grass_background_2_0
+      213: 887252847963787624
+    second: umbrella_dracula_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -126,13 +126,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Grass_background_2_0
+      name: umbrella_dracula_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 352
-        height: 407
+        x: 51
+        y: 37
+        width: 360
+        height: 387
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -141,8 +141,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: f708ff9b0ffd34ef0800000000000000
-      internalID: -125010139630567297
+      spriteID: 861d5dca3c7205c00800000000000000
+      internalID: 887252847963787624
       vertices: []
       indices: 
       edges: []
@@ -161,7 +161,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Grass_background_2_0: -125010139630567297
+      umbrella_dracula_0: 887252847963787624
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

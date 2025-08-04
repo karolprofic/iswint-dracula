@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using System;
+using System.Collections;
+using UnityEngine;
 using UnityEngine.InputSystem;
 
 [RequireComponent(typeof(Rigidbody2D))]
@@ -25,6 +27,7 @@ public class PlayerController : MonoBehaviour
     public Canvas gameOverCanvas;
     public Canvas userInterfaceCanvas;
     public CameraFollowHorizontal cameraFollow;
+    public CollectableInfo collectableInfo;
 
     private Rigidbody2D rb;
     private int currentHealth;
@@ -33,6 +36,7 @@ public class PlayerController : MonoBehaviour
     private bool isGrounded = false;
     private int amountOfBloodVails = 3;
     private int amountOfUmbrellas = 1;
+    private bool playerIsImmuneToSun = false;
 
     private void Start()
     {
@@ -40,6 +44,7 @@ public class PlayerController : MonoBehaviour
         currentHealth = maxHealth;
         availableJumps = maxJumps;
         healthBar.Initialize(maxHealth);
+        collectableInfo.UpdateValues(amountOfBloodVails, amountOfUmbrellas);
     }
 
     private void Update()
@@ -48,6 +53,7 @@ public class PlayerController : MonoBehaviour
 
         CheckGrounded();
         HandleJumpInput();
+        HandleInteractionInput();
         CheckIfFallenOutOfBounds();
     }
 
@@ -96,6 +102,24 @@ public class PlayerController : MonoBehaviour
         {
             jumpRequested = true;
         }
+    }
+
+    /// <summary>
+    /// Handle using of items and some debug key
+    /// </summary>
+    private void HandleInteractionInput()
+    {
+        // Items
+        if (Keyboard.current.digit1Key.wasPressedThisFrame) UseBloodVains();
+        if (Keyboard.current.digit2Key.wasPressedThisFrame) UseUmbrella();
+
+#if UNITY_EDITOR
+        // Debug input for taking damage
+        if (Keyboard.current.tKey.wasPressedThisFrame)
+        {
+            TakeDamage(10);
+        }
+#endif
     }
 
     /// <summary>
@@ -154,25 +178,54 @@ public class PlayerController : MonoBehaviour
         if (Keyboard.current.aKey.isPressed || Keyboard.current.leftArrowKey.isPressed) horizontal -= 1;
         if (Keyboard.current.dKey.isPressed || Keyboard.current.rightArrowKey.isPressed) horizontal += 1;
 
-/*        if (Keyboard.current.digit1Key.isPressed)
-        {
-            UseBloodVains();
-        }
-
-        if (Keyboard.current.digit2Key.isPressed)
-        {
-            UseUmbrella();
-        }
-*/
-#if UNITY_EDITOR
-        // Debug input for taking damage
-        if (Keyboard.current.tKey.wasPressedThisFrame)
-        {
-            TakeDamage(10);
-        }
-#endif
-
         return new Vector2(horizontal, vertical).normalized;
+    }
+
+    /// <summary>
+    /// Temporarily grants immunity to sun damage with a visual blinking effect.
+    /// </summary>
+    private void UseUmbrella()
+    {
+        if (amountOfUmbrellas == 0 || playerIsImmuneToSun) return;
+        amountOfUmbrellas--;
+        collectableInfo.UpdateValues(amountOfBloodVails, amountOfUmbrellas);
+        StartCoroutine(UmbrellaImmunityCoroutine(5));
+    }
+
+    /// <summary>
+    /// Grants sun immunity for given time.
+    /// </summary>
+    private IEnumerator UmbrellaImmunityCoroutine(int immunityDuration)
+    {
+        playerIsImmuneToSun = true;
+        SpriteRenderer sprite = GetComponent<SpriteRenderer>();
+        SetSpriteAlpha(sprite, 0.4f);
+        yield return new WaitForSeconds(immunityDuration);
+        SetSpriteAlpha(sprite, 1f);
+        playerIsImmuneToSun = false;
+    }
+
+    /// <summary>
+    /// Sets the alpha (transparency) of the player's sprite.
+    /// </summary>
+    private void SetSpriteAlpha(SpriteRenderer sprite, float alpha)
+    {
+        if (sprite == null) return;
+        Color color = sprite.color;
+        color.a = alpha;
+        sprite.color = color;
+    }
+
+    /// <summary>
+    /// Recover health after use of bolld vains
+    /// </summary>
+    private void UseBloodVains()
+    {
+        if (amountOfBloodVails == 0 || healthBar.GetCurrentHealth() == maxHealth) return;
+        amountOfBloodVails -= 1;
+        currentHealth = Mathf.Min(maxHealth, currentHealth += (maxHealth / 3)); // Single potion recovery 1/3 of health
+        healthBar.UpdateHealth(currentHealth);
+        collectableInfo.UpdateValues(amountOfBloodVails, amountOfUmbrellas);
     }
 
     /// <summary>
@@ -233,11 +286,11 @@ public class PlayerController : MonoBehaviour
 
         switch (normalized)
         {
-            case "BloodVails":
+            case "BloodVail":
                 amountOfBloodVails += itemAmount;
                 break;
 
-            case "Coins":
+            case "Umbrella":
                 amountOfUmbrellas += itemAmount;
                 break;
 
@@ -245,5 +298,7 @@ public class PlayerController : MonoBehaviour
                 Debug.LogWarning($"No collection logic defined for item: {itemName}");
                 break;
         }
+
+        collectableInfo.UpdateValues(amountOfBloodVails, amountOfUmbrellas);
     }
 }
