@@ -184,6 +184,8 @@ public class PlayerController : MonoBehaviour
     /// </summary>
     private void UseUmbrella()
     {
+        if (amountOfUmbrellas == 0) return;
+
         // TODO: Implement
         amountOfUmbrellas -= 1;
         collectableInfo.UpdateValues(amountOfBloodVails, amountOfUmbrellas);
@@ -195,6 +197,7 @@ public class PlayerController : MonoBehaviour
     /// </summary>
     private void UseBloodVains()
     {
+        if (amountOfBloodVails == 0) return;
         amountOfBloodVails -= 1;
         currentHealth = Mathf.Min(maxHealth, currentHealth += (maxHealth / 3)); // Single potion recovery 1/3 of health
         healthBar.UpdateHealth(currentHealth);
