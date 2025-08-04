@@ -4,7 +4,7 @@ using UnityEngine;
 public class CollectableItem : MonoBehaviour
 {
     [Header("Item Properties")]
-    public string itemName;
+    public ItemType itemName;
     public int itemAmount = 1;
     public GameObject pickupEffect;
 

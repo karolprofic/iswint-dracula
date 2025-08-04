@@ -138,6 +138,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b803dd09e54c33547ae61aa56bbeb259, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemName: Umbrella
+  itemName: 1
   itemAmount: 1
   pickupEffect: {fileID: 0}

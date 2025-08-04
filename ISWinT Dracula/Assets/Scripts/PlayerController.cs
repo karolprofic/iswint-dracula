@@ -274,29 +274,18 @@ public class PlayerController : MonoBehaviour
     /// <summary>
     /// Adds the specified amount of a collectable item to the player's inventory.
     /// </summary>
-    public void CollectItem(string itemName, int itemAmount)
+    public void CollectItem(ItemType itemName, int itemAmount)
     {
-        if (string.IsNullOrWhiteSpace(itemName))
+        switch (itemName)
         {
-            Debug.LogWarning("CollectItem called with empty itemName.");
-            return;
-        }
-
-        string normalized = itemName.Trim();
-
-        switch (normalized)
-        {
-            case "BloodVail":
+            case ItemType.BloodVail:
                 amountOfBloodVails += itemAmount;
                 break;
 
-            case "Umbrella":
+            case ItemType.Umbrella:
                 amountOfUmbrellas += itemAmount;
                 break;
 
-            default:
-                Debug.LogWarning($"No collection logic defined for item: {itemName}");
-                break;
         }
 
         collectableInfo.UpdateValues(amountOfBloodVails, amountOfUmbrellas);
