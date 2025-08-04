@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -35,6 +36,7 @@ public class PlayerController : MonoBehaviour
     private bool isGrounded = false;
     private int amountOfBloodVails = 3;
     private int amountOfUmbrellas = 1;
+    private bool playerIsImmuneToSun = false;
 
     private void Start()
     {
@@ -180,16 +182,38 @@ public class PlayerController : MonoBehaviour
     }
 
     /// <summary>
-    /// Disable reciving demage from sun
+    /// Temporarily grants immunity to sun damage with a visual blinking effect.
     /// </summary>
     private void UseUmbrella()
     {
-        if (amountOfUmbrellas == 0) return;
-
-        // TODO: Implement
-        amountOfUmbrellas -= 1;
+        if (amountOfUmbrellas == 0 || playerIsImmuneToSun) return;
+        amountOfUmbrellas--;
         collectableInfo.UpdateValues(amountOfBloodVails, amountOfUmbrellas);
+        StartCoroutine(UmbrellaImmunityCoroutine(5));
+    }
 
+    /// <summary>
+    /// Grants sun immunity for given time.
+    /// </summary>
+    private IEnumerator UmbrellaImmunityCoroutine(int immunityDuration)
+    {
+        playerIsImmuneToSun = true;
+        SpriteRenderer sprite = GetComponent<SpriteRenderer>();
+        SetSpriteAlpha(sprite, 0.4f);
+        yield return new WaitForSeconds(immunityDuration);
+        SetSpriteAlpha(sprite, 1f);
+        playerIsImmuneToSun = false;
+    }
+
+    /// <summary>
+    /// Sets the alpha (transparency) of the player's sprite.
+    /// </summary>
+    private void SetSpriteAlpha(SpriteRenderer sprite, float alpha)
+    {
+        if (sprite == null) return;
+        Color color = sprite.color;
+        color.a = alpha;
+        sprite.color = color;
     }
 
     /// <summary>
@@ -197,7 +221,7 @@ public class PlayerController : MonoBehaviour
     /// </summary>
     private void UseBloodVains()
     {
-        if (amountOfBloodVails == 0) return;
+        if (amountOfBloodVails == 0 || healthBar.GetCurrentHealth() == maxHealth) return;
         amountOfBloodVails -= 1;
         currentHealth = Mathf.Min(maxHealth, currentHealth += (maxHealth / 3)); // Single potion recovery 1/3 of health
         healthBar.UpdateHealth(currentHealth);
