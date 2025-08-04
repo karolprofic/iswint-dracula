@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEngine.InputSystem;
 
 [RequireComponent(typeof(Rigidbody2D))]
@@ -25,6 +26,7 @@ public class PlayerController : MonoBehaviour
     public Canvas gameOverCanvas;
     public Canvas userInterfaceCanvas;
     public CameraFollowHorizontal cameraFollow;
+    public CollectableInfo collectableInfo;
 
     private Rigidbody2D rb;
     private int currentHealth;
@@ -40,6 +42,7 @@ public class PlayerController : MonoBehaviour
         currentHealth = maxHealth;
         availableJumps = maxJumps;
         healthBar.Initialize(maxHealth);
+        collectableInfo.UpdateValues(amountOfBloodVails, amountOfUmbrellas);
     }
 
     private void Update()
@@ -48,6 +51,7 @@ public class PlayerController : MonoBehaviour
 
         CheckGrounded();
         HandleJumpInput();
+        HandleInteractionInput();
         CheckIfFallenOutOfBounds();
     }
 
@@ -96,6 +100,24 @@ public class PlayerController : MonoBehaviour
         {
             jumpRequested = true;
         }
+    }
+
+    /// <summary>
+    /// Handle using of items and some debug key
+    /// </summary>
+    private void HandleInteractionInput()
+    {
+        // Items
+        if (Keyboard.current.digit1Key.wasPressedThisFrame) UseBloodVains();
+        if (Keyboard.current.digit2Key.wasPressedThisFrame) UseUmbrella();
+
+#if UNITY_EDITOR
+        // Debug input for taking damage
+        if (Keyboard.current.tKey.wasPressedThisFrame)
+        {
+            TakeDamage(10);
+        }
+#endif
     }
 
     /// <summary>
@@ -154,25 +176,29 @@ public class PlayerController : MonoBehaviour
         if (Keyboard.current.aKey.isPressed || Keyboard.current.leftArrowKey.isPressed) horizontal -= 1;
         if (Keyboard.current.dKey.isPressed || Keyboard.current.rightArrowKey.isPressed) horizontal += 1;
 
-/*        if (Keyboard.current.digit1Key.isPressed)
-        {
-            UseBloodVains();
-        }
-
-        if (Keyboard.current.digit2Key.isPressed)
-        {
-            UseUmbrella();
-        }
-*/
-#if UNITY_EDITOR
-        // Debug input for taking damage
-        if (Keyboard.current.tKey.wasPressedThisFrame)
-        {
-            TakeDamage(10);
-        }
-#endif
-
         return new Vector2(horizontal, vertical).normalized;
+    }
+
+    /// <summary>
+    /// Disable reciving demage from sun
+    /// </summary>
+    private void UseUmbrella()
+    {
+        // TODO: Implement
+        amountOfUmbrellas -= 1;
+        collectableInfo.UpdateValues(amountOfBloodVails, amountOfUmbrellas);
+
+    }
+
+    /// <summary>
+    /// Recover health after use of bolld vains
+    /// </summary>
+    private void UseBloodVains()
+    {
+        amountOfBloodVails -= 1;
+        currentHealth = Mathf.Min(maxHealth, currentHealth += (maxHealth / 3)); // Single potion recovery 1/3 of health
+        healthBar.UpdateHealth(currentHealth);
+        collectableInfo.UpdateValues(amountOfBloodVails, amountOfUmbrellas);
     }
 
     /// <summary>
@@ -245,5 +271,7 @@ public class PlayerController : MonoBehaviour
                 Debug.LogWarning($"No collection logic defined for item: {itemName}");
                 break;
         }
+
+        collectableInfo.UpdateValues(amountOfBloodVails, amountOfUmbrellas);
     }
 }
