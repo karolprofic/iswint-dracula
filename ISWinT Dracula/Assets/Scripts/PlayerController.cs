@@ -117,7 +117,7 @@ public class PlayerController : MonoBehaviour
         // Debug input for taking damage
         if (Keyboard.current.tKey.wasPressedThisFrame)
         {
-            TakeDamage(10);
+            TakeDamage(10, DemageType.Other);
         }
 #endif
     }
@@ -236,8 +236,12 @@ public class PlayerController : MonoBehaviour
     /// <summary>
     /// Applies damage to the player and triggers game over if health reaches zero.
     /// </summary>
-    public void TakeDamage(int damageAmount)
+    public void TakeDamage(int damageAmount, DemageType demageType)
     {
+        if (demageType == DemageType.Sun && playerIsImmuneToSun) {
+            return;
+        }
+
         currentHealth = Mathf.Max(0, currentHealth - damageAmount);
         healthBar.UpdateHealth(currentHealth);
 
