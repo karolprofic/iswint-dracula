@@ -3,7 +3,8 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 3
-  tags: []
+  tags:
+  - platform
   layers:
   - Default
   - TransparentFX
@@ -13,10 +14,10 @@ TagManager:
   - UI
   - Player
   - Ground
-  - 
-  - 
-  - 
-  - 
+  - background 1
+  - background 2
+  - background 3
+  - background 4
   - 
   - 
   - 
