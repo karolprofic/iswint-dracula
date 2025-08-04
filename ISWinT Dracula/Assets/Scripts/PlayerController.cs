@@ -233,11 +233,11 @@ public class PlayerController : MonoBehaviour
 
         switch (normalized)
         {
-            case "BloodVails":
+            case "BloodVail":
                 amountOfBloodVails += itemAmount;
                 break;
 
-            case "Coins":
+            case "Umbrella":
                 amountOfUmbrellas += itemAmount;
                 break;
 

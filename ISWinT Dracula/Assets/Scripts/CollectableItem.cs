@@ -4,13 +4,9 @@ using UnityEngine;
 public class CollectableItem : MonoBehaviour
 {
     [Header("Item Properties")]
-    [Tooltip("Name of the item (used for inventory or logs)")]
     public string itemName;
-
-    [Tooltip("Optional pickup effect (particles, sound, etc.)")]
+    public int itemAmount = 1;
     public GameObject pickupEffect;
-
-    private SpriteRenderer spriteRenderer;
 
     private void Awake()
     {
@@ -43,8 +39,16 @@ public class CollectableItem : MonoBehaviour
             Instantiate(pickupEffect, transform.position, Quaternion.identity);
         }
 
-        Debug.Log($"Player collected: {itemName}");
+        PlayerController playerController = player.GetComponent<PlayerController>();
+        if (playerController != null)
+        {
+            playerController.CollectItem(itemName, itemAmount);
+            Destroy(gameObject);
+        }
+        else
+        {
+            Debug.LogWarning($"No PlayerController found on object: {player.name}");
+        }
 
-        Destroy(gameObject);
     }
 }
