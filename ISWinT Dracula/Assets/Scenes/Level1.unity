@@ -1238,6 +1238,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1321797559}
     - target: {fileID: 7500110017289421176, guid: 2d478f5d0400d6844999fb446ec8e436, type: 3}
+      propertyPath: collectableInfo
+      value: 
+      objectReference: {fileID: 4792786096441227286}
+    - target: {fileID: 7500110017289421176, guid: 2d478f5d0400d6844999fb446ec8e436, type: 3}
       propertyPath: userInterfaceCanvas
       value: 
       objectReference: {fileID: 1906894933}
@@ -1448,6 +1452,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7a61d7c3170c5f34ba968a885bfee1bd, type: 3}
+--- !u!114 &4792786096441227286 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9173596090928143916, guid: 7a61d7c3170c5f34ba968a885bfee1bd, type: 3}
+  m_PrefabInstance: {fileID: 4792786096441227285}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6324353f0572c5b4596d5614ec345a9d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
