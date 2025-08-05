@@ -616,11 +616,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5203673912571963113, guid: 85b74dc07875f6048a0d38d8e8138db4, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0.83176
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5203673912571963113, guid: 85b74dc07875f6048a0d38d8e8138db4, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -4.63728
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5203673912571963113, guid: 85b74dc07875f6048a0d38d8e8138db4, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -637,6 +637,10 @@ PrefabInstance:
     - target: {fileID: 6324302163154005972, guid: 85b74dc07875f6048a0d38d8e8138db4, type: 3}
       propertyPath: m_Name
       value: Canvas - Game over
+      objectReference: {fileID: 0}
+    - target: {fileID: 6324302163154005972, guid: 85b74dc07875f6048a0d38d8e8138db4, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
