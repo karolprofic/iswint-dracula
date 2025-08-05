@@ -29,13 +29,15 @@ public class PlayerController : MonoBehaviour
     public CameraFollowHorizontal cameraFollow;
     public CollectableInfo collectableInfo;
 
+    [Header("Items")]
+    public int amountOfBloodVails = 3;
+    public int amountOfUmbrellas = 1;
+
     private Rigidbody2D rb;
     private int currentHealth;
     private int availableJumps;
     private bool jumpRequested = false;
     private bool isGrounded = false;
-    private int amountOfBloodVails = 3;
-    private int amountOfUmbrellas = 1;
     private bool playerIsImmuneToSun = false;
 
     private void Start()
