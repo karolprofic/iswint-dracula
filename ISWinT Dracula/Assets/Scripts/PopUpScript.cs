@@ -18,7 +18,12 @@ public class PopUpScript : MonoBehaviour
         {
             Debug.LogError("PopUpScript: Message Text or Message Background reference is missing.");
         }
-        FadeCanvasGroup(1f, 0f, 0f);
+
+        // Hide after game initialization
+        Color textColor = messageText.color;
+        Color bgColor = messageBackground.color;
+        messageText.color = new Color(textColor.r, textColor.g, textColor.b, 0f);
+        messageBackground.color = new Color(bgColor.r, bgColor.g, bgColor.b, 0f);
     }
 
     /// <summary>
