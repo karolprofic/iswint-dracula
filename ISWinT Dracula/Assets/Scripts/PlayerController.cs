@@ -129,7 +129,30 @@ public class PlayerController : MonoBehaviour
     /// </summary>
     private void MovePlayer(Vector2 direction)
     {
-        rb.AddForce(direction * movementForce);
+        Vector2 forwardOffset = Vector2.right * Mathf.Sign(direction.x) * 1f;
+        Vector2 origin = (Vector2)transform.position + forwardOffset;
+        RaycastHit2D hit = Physics2D.Raycast(origin, Vector2.down, groundCheckRadius + 1f, groundLayer);
+        float slopeAngle = 0f;
+        if (hit.collider != null)
+        {
+            slopeAngle = Vector2.Angle(hit.normal, Vector2.up);
+        }
+        else
+        {
+            slopeAngle = 0f;
+        }
+
+
+        if (slopeAngle == 0f)
+        {
+            rb.AddForce(direction * movementForce);
+        }
+        else
+        {
+            direction.y = direction.x;
+            rb.AddForce(direction * movementForce);
+        }
+
         UpdateCharacterFacing(direction.x);
     }
 
