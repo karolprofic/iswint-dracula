@@ -1,0 +1,741 @@
+fileFormatVersion: 2
+guid: 777f7d348272c45ad957abd3e35c8491
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -4884834646977361216
+    second: TopDownSlimeSprites_0
+  - first:
+      213: 7421238290021302208
+    second: TopDownSlimeSprites_1
+  - first:
+      213: 2230089437322626047
+    second: TopDownSlimeSprites_2
+  - first:
+      213: 350299245773834850
+    second: TopDownSlimeSprites_3
+  - first:
+      213: 1146767655768986902
+    second: TopDownSlimeSprites_4
+  - first:
+      213: -8203100834554820937
+    second: TopDownSlimeSprites_5
+  - first:
+      213: -3357524744805439808
+    second: TopDownSlimeSprites_6
+  - first:
+      213: -324295108802953101
+    second: TopDownSlimeSprites_7
+  - first:
+      213: -4820527053209947869
+    second: TopDownSlimeSprites_8
+  - first:
+      213: 2480211493854568599
+    second: TopDownSlimeSprites_9
+  - first:
+      213: 8549590743117497981
+    second: TopDownSlimeSprites_10
+  - first:
+      213: 3010349081633093900
+    second: TopDownSlimeSprites_11
+  - first:
+      213: 1562129719467306261
+    second: TopDownSlimeSprites_12
+  - first:
+      213: 6389488954400140007
+    second: TopDownSlimeSprites_13
+  - first:
+      213: -2184231197576024739
+    second: TopDownSlimeSprites_14
+  - first:
+      213: -7078600896163479685
+    second: TopDownSlimeSprites_15
+  - first:
+      213: 5223982466108241581
+    second: TopDownSlimeSprites_16
+  - first:
+      213: -9165055655720099238
+    second: TopDownSlimeSprites_17
+  - first:
+      213: 1160415863461529300
+    second: TopDownSlimeSprites_18
+  - first:
+      213: -5320847036823257972
+    second: TopDownSlimeSprites_19
+  - first:
+      213: -6738075663911936914
+    second: TopDownSlimeSprites_20
+  - first:
+      213: -6626973059116875657
+    second: TopDownSlimeSprites_21
+  - first:
+      213: 6987339144283546117
+    second: TopDownSlimeSprites_22
+  - first:
+      213: 5208101550506660839
+    second: TopDownSlimeSprites_23
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: TopDownSlimeSprites_0
+      rect:
+        serializedVersion: 2
+        x: 179
+        y: 1599
+        width: 132
+        height: 92
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0cac46005c4953cb0800000000000000
+      internalID: -4884834646977361216
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TopDownSlimeSprites_1
+      rect:
+        serializedVersion: 2
+        x: 659
+        y: 1599
+        width: 132
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0cf3f36c7e88df660800000000000000
+      internalID: 7421238290021302208
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TopDownSlimeSprites_2
+      rect:
+        serializedVersion: 2
+        x: 1139
+        y: 1609
+        width: 142
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ff347f8178ed2fe10800000000000000
+      internalID: 2230089437322626047
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TopDownSlimeSprites_3
+      rect:
+        serializedVersion: 2
+        x: 1619
+        y: 1599
+        width: 142
+        height: 92
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 26acf6dde438cd400800000000000000
+      internalID: 350299245773834850
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TopDownSlimeSprites_4
+      rect:
+        serializedVersion: 2
+        x: 2099
+        y: 1599
+        width: 142
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 615940a6b132aef00800000000000000
+      internalID: 1146767655768986902
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TopDownSlimeSprites_5
+      rect:
+        serializedVersion: 2
+        x: 2579
+        y: 1599
+        width: 132
+        height: 92
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7b646abb04bb82e80800000000000000
+      internalID: -8203100834554820937
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TopDownSlimeSprites_6
+      rect:
+        serializedVersion: 2
+        x: 179
+        y: 1119
+        width: 132
+        height: 92
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0c6a945980da761d0800000000000000
+      internalID: -3357524744805439808
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TopDownSlimeSprites_7
+      rect:
+        serializedVersion: 2
+        x: 659
+        y: 1119
+        width: 132
+        height: 92
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3704765115fdf7bf0800000000000000
+      internalID: -324295108802953101
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TopDownSlimeSprites_8
+      rect:
+        serializedVersion: 2
+        x: 1139
+        y: 1119
+        width: 132
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 321b2437f2c0a1db0800000000000000
+      internalID: -4820527053209947869
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TopDownSlimeSprites_9
+      rect:
+        serializedVersion: 2
+        x: 1609
+        y: 1119
+        width: 132
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 790ea03863b7b6220800000000000000
+      internalID: 2480211493854568599
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TopDownSlimeSprites_10
+      rect:
+        serializedVersion: 2
+        x: 2079
+        y: 1129
+        width: 142
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d768c72bb7f36a670800000000000000
+      internalID: 8549590743117497981
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TopDownSlimeSprites_11
+      rect:
+        serializedVersion: 2
+        x: 2559
+        y: 1119
+        width: 132
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c09f9ac4a88e6c920800000000000000
+      internalID: 3010349081633093900
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TopDownSlimeSprites_12
+      rect:
+        serializedVersion: 2
+        x: 179
+        y: 639
+        width: 132
+        height: 92
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 51deded04bccda510800000000000000
+      internalID: 1562129719467306261
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TopDownSlimeSprites_13
+      rect:
+        serializedVersion: 2
+        x: 659
+        y: 639
+        width: 132
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7ea6d4fd9560ca850800000000000000
+      internalID: 6389488954400140007
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TopDownSlimeSprites_14
+      rect:
+        serializedVersion: 2
+        x: 1139
+        y: 649
+        width: 142
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d5da7216c4d00b1e0800000000000000
+      internalID: -2184231197576024739
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TopDownSlimeSprites_15
+      rect:
+        serializedVersion: 2
+        x: 1619
+        y: 639
+        width: 142
+        height: 92
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b7ff96d2df1c3cd90800000000000000
+      internalID: -7078600896163479685
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TopDownSlimeSprites_16
+      rect:
+        serializedVersion: 2
+        x: 2099
+        y: 639
+        width: 142
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: da6304500605f7840800000000000000
+      internalID: 5223982466108241581
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TopDownSlimeSprites_17
+      rect:
+        serializedVersion: 2
+        x: 2579
+        y: 639
+        width: 132
+        height: 92
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a526e1e807e2fc080800000000000000
+      internalID: -9165055655720099238
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TopDownSlimeSprites_18
+      rect:
+        serializedVersion: 2
+        x: 179
+        y: 159
+        width: 132
+        height: 92
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4d64a556410aa1010800000000000000
+      internalID: 1160415863461529300
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TopDownSlimeSprites_19
+      rect:
+        serializedVersion: 2
+        x: 659
+        y: 159
+        width: 132
+        height: 92
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c8cb5f1afcd8826b0800000000000000
+      internalID: -5320847036823257972
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TopDownSlimeSprites_20
+      rect:
+        serializedVersion: 2
+        x: 1139
+        y: 159
+        width: 132
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e6c13de22eb8d72a0800000000000000
+      internalID: -6738075663911936914
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TopDownSlimeSprites_21
+      rect:
+        serializedVersion: 2
+        x: 1609
+        y: 159
+        width: 132
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 770414b2d134804a0800000000000000
+      internalID: -6626973059116875657
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TopDownSlimeSprites_22
+      rect:
+        serializedVersion: 2
+        x: 2079
+        y: 169
+        width: 142
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 502e3346ee308f060800000000000000
+      internalID: 6987339144283546117
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TopDownSlimeSprites_23
+      rect:
+        serializedVersion: 2
+        x: 2559
+        y: 159
+        width: 132
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7e35c1834c4e64840800000000000000
+      internalID: 5208101550506660839
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      TopDownSlimeSprites_0: -4884834646977361216
+      TopDownSlimeSprites_1: 7421238290021302208
+      TopDownSlimeSprites_10: 8549590743117497981
+      TopDownSlimeSprites_11: 3010349081633093900
+      TopDownSlimeSprites_12: 1562129719467306261
+      TopDownSlimeSprites_13: 6389488954400140007
+      TopDownSlimeSprites_14: -2184231197576024739
+      TopDownSlimeSprites_15: -7078600896163479685
+      TopDownSlimeSprites_16: 5223982466108241581
+      TopDownSlimeSprites_17: -9165055655720099238
+      TopDownSlimeSprites_18: 1160415863461529300
+      TopDownSlimeSprites_19: -5320847036823257972
+      TopDownSlimeSprites_2: 2230089437322626047
+      TopDownSlimeSprites_20: -6738075663911936914
+      TopDownSlimeSprites_21: -6626973059116875657
+      TopDownSlimeSprites_22: 6987339144283546117
+      TopDownSlimeSprites_23: 5208101550506660839
+      TopDownSlimeSprites_3: 350299245773834850
+      TopDownSlimeSprites_4: 1146767655768986902
+      TopDownSlimeSprites_5: -8203100834554820937
+      TopDownSlimeSprites_6: -3357524744805439808
+      TopDownSlimeSprites_7: -324295108802953101
+      TopDownSlimeSprites_8: -4820527053209947869
+      TopDownSlimeSprites_9: 2480211493854568599
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
