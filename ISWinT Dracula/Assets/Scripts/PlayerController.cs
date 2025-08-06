@@ -39,6 +39,7 @@ public class PlayerController : MonoBehaviour
     private bool jumpRequested = false;
     private bool isGrounded = false;
     private bool playerIsImmuneToSun = false;
+    private bool isWalking = false;
 
     private void Start()
     {
@@ -66,6 +67,7 @@ public class PlayerController : MonoBehaviour
         Vector2 movementInput = GetMovementInput();
         MovePlayer(movementInput);
         ClampVelocity();
+        PlayMovmentAnimation(movementInput);
 
         if (jumpRequested)
         {
@@ -76,6 +78,28 @@ public class PlayerController : MonoBehaviour
             }
 
             jumpRequested = false; // Always reset jumpRequested, even if jump wasn't allowed
+        }
+    }
+
+    /// <summary>
+    /// Simple workaround for playing idle/walk animations without using a full Animator setup due to time constraints.
+    /// </summary>
+    private void PlayMovmentAnimation(Vector2 movementInput)
+    {
+        if (!isGrounded)
+        {
+            return;
+        }
+        bool isMovingHorizontally = Mathf.Abs(movementInput.x) > 0.01f;
+        if (isMovingHorizontally && !isWalking)
+        {
+            animator.Play("Walk");
+            isWalking = true;
+        }
+        else if (!isMovingHorizontally && isWalking)
+        {
+            animator.Play("Idle");
+            isWalking = false;
         }
     }
 
