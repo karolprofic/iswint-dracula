@@ -13,7 +13,6 @@ public class EnemyBlobController : MonoBehaviour
 
     [Header("References")]
     public LayerMask playerLayer;
-    public Animator animator;
 
     private Rigidbody2D rb;
     private bool movingRight = true;
@@ -45,7 +44,7 @@ public class EnemyBlobController : MonoBehaviour
         rb.linearVelocity = movement;
 
         // Flip sprite
-        transform.localScale = new Vector3(movingRight ? 1 : -1, 1, 1);
+        transform.localScale = new Vector3(movingRight ? 2 : -2, 2, 2);
 
         // Check bounds
         if (transform.position.x < leftBoundryX && !movingRight)
@@ -65,7 +64,7 @@ public class EnemyBlobController : MonoBehaviour
             PlayerController player = collision.gameObject.GetComponent<PlayerController>();
             if (player != null)
             {
-                player.TakeDamage(damage, DemageType.Other);
+                player.TakeDamage(damage, DemageType.Blob);
             }
 
             // Reverse direction after hitting player
