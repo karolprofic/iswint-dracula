@@ -39,6 +39,7 @@ public class PlayerController : MonoBehaviour
     private bool jumpRequested = false;
     private bool isGrounded = false;
     private bool playerIsImmuneToSun = false;
+    private bool isWalking = false;
 
     private void Start()
     {
@@ -66,6 +67,7 @@ public class PlayerController : MonoBehaviour
         Vector2 movementInput = GetMovementInput();
         MovePlayer(movementInput);
         ClampVelocity();
+        PlayMovmentAnimation(movementInput);
 
         if (jumpRequested)
         {
@@ -76,6 +78,28 @@ public class PlayerController : MonoBehaviour
             }
 
             jumpRequested = false; // Always reset jumpRequested, even if jump wasn't allowed
+        }
+    }
+
+    /// <summary>
+    /// Simple workaround for playing idle/walk animations without using a full Animator setup due to time constraints.
+    /// </summary>
+    private void PlayMovmentAnimation(Vector2 movementInput)
+    {
+        if (!isGrounded)
+        {
+            return;
+        }
+        bool isMovingHorizontally = Mathf.Abs(movementInput.x) > 0.01f;
+        if (isMovingHorizontally && !isWalking)
+        {
+            animator.Play("Walk");
+            isWalking = true;
+        }
+        else if (!isMovingHorizontally && isWalking)
+        {
+            animator.Play("Idle");
+            isWalking = false;
         }
     }
 
@@ -129,7 +153,30 @@ public class PlayerController : MonoBehaviour
     /// </summary>
     private void MovePlayer(Vector2 direction)
     {
-        rb.AddForce(direction * movementForce);
+        Vector2 forwardOffset = Vector2.right * Mathf.Sign(direction.x) * 1f;
+        Vector2 origin = (Vector2)transform.position + forwardOffset;
+        RaycastHit2D hit = Physics2D.Raycast(origin, Vector2.down, groundCheckRadius + 1f, groundLayer);
+        float slopeAngle = 0f;
+        if (hit.collider != null)
+        {
+            slopeAngle = Vector2.Angle(hit.normal, Vector2.up);
+        }
+        else
+        {
+            slopeAngle = 0f;
+        }
+
+
+        if (slopeAngle == 0f)
+        {
+            rb.AddForce(direction * movementForce);
+        }
+        else
+        {
+            direction.y = direction.x;
+            rb.AddForce(direction * movementForce);
+        }
+
         UpdateCharacterFacing(direction.x);
     }
 
