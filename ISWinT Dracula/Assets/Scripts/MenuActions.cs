@@ -8,7 +8,7 @@ public class MenuActions : MonoBehaviour
     /// </summary>
     public void StartNewGame()
     {
-        SceneManager.LoadScene("Level1");
+        SceneManager.LoadScene("Intro");
     }
 
     /// <summary>
