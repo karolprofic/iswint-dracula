@@ -18,7 +18,7 @@
 ## Play Online
 
 Try the game on itch.io:  
-👉 [https://yourname.itch.io/iswint-dracula](https://yourname.itch.io/iswint-dracula)
+👉 [https://karolprofic.itch.io/iswint-dracula](https://karolprofic.itch.io/iswint-dracula)
 
 ---
 
