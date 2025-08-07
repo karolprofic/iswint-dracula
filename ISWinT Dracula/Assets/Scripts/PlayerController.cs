@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -38,7 +39,7 @@ public class PlayerController : MonoBehaviour
     private int availableJumps;
     private bool jumpRequested = false;
     private bool isGrounded = false;
-    private bool playerIsImmuneToSun = false;
+    private bool umbrellaIsActive = false;
     private bool isWalking = false;
 
     private void Start()
@@ -235,7 +236,7 @@ public class PlayerController : MonoBehaviour
     /// </summary>
     private void UseUmbrella()
     {
-        if (amountOfUmbrellas == 0 || playerIsImmuneToSun) return;
+        if (amountOfUmbrellas == 0 || umbrellaIsActive) return;
         amountOfUmbrellas--;
         collectableInfo.UpdateValues(amountOfBloodVails, amountOfUmbrellas);
         StartCoroutine(UmbrellaImmunityCoroutine(5));
@@ -246,12 +247,12 @@ public class PlayerController : MonoBehaviour
     /// </summary>
     private IEnumerator UmbrellaImmunityCoroutine(int immunityDuration)
     {
-        playerIsImmuneToSun = true;
+        umbrellaIsActive = true;
         SpriteRenderer sprite = GetComponent<SpriteRenderer>();
         SetSpriteAlpha(sprite, 0.4f);
         yield return new WaitForSeconds(immunityDuration);
         SetSpriteAlpha(sprite, 1f);
-        playerIsImmuneToSun = false;
+        umbrellaIsActive = false;
     }
 
     /// <summary>
@@ -287,7 +288,10 @@ public class PlayerController : MonoBehaviour
     /// </summary>
     public void TakeDamage(int damageAmount, DemageType demageType)
     {
-        if (demageType == DemageType.Sun && playerIsImmuneToSun) {
+
+        DemageType[] umbrellaImmuneDemageType = { DemageType.Sun, DemageType.Blob, DemageType.Fire };
+        if (umbrellaImmuneDemageType.Contains(demageType) && umbrellaIsActive)
+        {
             return;
         }
 
