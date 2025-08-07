@@ -2,8 +2,6 @@
 
 **ISWinT Dracula** is a 2D platform game in which you play as Dracula, who must travel to ISWinT.
 
----
-
 ## Controls
 
 | Key            | Action                   |
@@ -13,14 +11,10 @@
 | `1`            | Healing potion           |
 | `2`            | Umbrella                 |
 
----
-
 ## Play Online
 
 Try the game on itch.io:  
 👉 [https://karolprofic.itch.io/iswint-dracula](https://karolprofic.itch.io/iswint-dracula)
-
----
 
 ## Creators
 
@@ -28,8 +22,6 @@ Developed by:
 - Karol Profic
 - Sharwari Palekar
 - Mir Munawar
-
----
 
 ## Screenshots
 
