@@ -60326,10 +60326,10 @@ PrefabInstance:
     - target: {fileID: 3538495123004032919, guid: 7a61d7c3170c5f34ba968a885bfee1bd, type: 3}
       propertyPath: m_Camera
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1643252319}
     - target: {fileID: 3538495123004032919, guid: 7a61d7c3170c5f34ba968a885bfee1bd, type: 3}
       propertyPath: m_SortingOrder
-      value: 20
+      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 8315210676655699161, guid: 7a61d7c3170c5f34ba968a885bfee1bd, type: 3}
       propertyPath: m_Name
