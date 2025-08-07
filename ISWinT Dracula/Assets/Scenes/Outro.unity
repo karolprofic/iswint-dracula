@@ -216,6 +216,7 @@ GameObject:
   m_Component:
   - component: {fileID: 97565449}
   - component: {fileID: 97565448}
+  - component: {fileID: 97565450}
   m_Layer: 0
   m_Name: outroanimation
   m_TagString: Untagged
@@ -233,7 +234,7 @@ PlayableDirector:
   m_Enabled: 1
   serializedVersion: 3
   m_PlayableAsset: {fileID: 11400000, guid: d6d394eec641e40be8d0a94cf6fed0b7, type: 2}
-  m_InitialState: 1
+  m_InitialState: 0
   m_WrapMode: 2
   m_DirectorUpdateMode: 1
   m_InitialTime: 0
@@ -269,6 +270,21 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &97565450
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 97565447}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59c7778b83164c2499c0001df088e6de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nextLevelName: Menu
+  nextLevelDelay: 2
+  timeline: {fileID: 97565448}
 --- !u!1 &443292115
 GameObject:
   m_ObjectHideFlags: 0
