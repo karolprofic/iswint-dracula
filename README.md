@@ -26,16 +26,14 @@ Try the game on itch.io:
 
 Developed by:
 - Karol Profic
-- Sharwari ???
-- Mir ??
+- Sharwari Palekar
+- Mir Munawar
 
 ---
 
 ## Screenshots
 
-<p float="left">
-  <img src="./Screenshot/1.png" width="400"/>
-  <img src="./Screenshot/2.png" width="400"/>
-  <img src="./Screenshot/3.png" width="400"/>
-  <img src="./Screenshot/4.png" width="400"/>
-</p>
+<img src="./Screenshot/1.png" width="100%"/>
+<img src="./Screenshot/2.png" width="100%"/>
+<img src="./Screenshot/3.png" width="100%"/>
+<img src="./Screenshot/4.png" width="100%"/>
