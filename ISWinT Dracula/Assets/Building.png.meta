@@ -1,13 +1,10 @@
 fileFormatVersion: 2
-guid: 5980e1c26da858d008cd8ca24f8b04bd
+guid: 4c007fed341ed863b83eadd2ea81e31c
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 5288818979988103958
-    second: grass9_0
-  - first:
-      213: 8520539160373583354
-    second: grass9_1
+      213: -1370150288747598966
+    second: Building_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -103,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: grass9_0
+      name: Building_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 5
-        height: 5
+        x: 144
+        y: 182
+        width: 706
+        height: 521
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -118,30 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 613e88747d8a56940800000000000000
-      internalID: 5288818979988103958
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: grass9_1
-      rect:
-        serializedVersion: 2
-        x: 10
-        y: 0
-        width: 6
-        height: 5
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: afd5fdcf8390f3670800000000000000
-      internalID: 8520539160373583354
+      spriteID: a8bec4e529f3cfce0800000000000000
+      internalID: -1370150288747598966
       vertices: []
       indices: 
       edges: []
@@ -160,8 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      grass9_0: 5288818979988103958
-      grass9_1: 8520539160373583354
+      Building_0: -1370150288747598966
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
